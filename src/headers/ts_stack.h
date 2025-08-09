@@ -8,7 +8,7 @@ template <typename T>
 class Ts_stack {
  private:
   Node<T>* head = nullptr;
-  size_t size;
+  size_t size = 0;
 
  public:
   Ts_stack() {
@@ -55,10 +55,10 @@ class Ts_stack {
   void push(const T& value){
     Node<T> node(value);
     node.prev = head;
-    node.next = head->next;
+    node.next = nullptr;
     head = &node; 
     size++;
-    std::cout << "Pushed: " << value << std::endl;
+    std::cout << "Pushed: " << head->value << std::endl;
   }
 
   void push(Node<T>& node){
